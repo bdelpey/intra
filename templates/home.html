@@ -7,19 +7,19 @@
 
 {% block content %}
 
-Page d'acceuil.
+Welcome.
 
 {% if user.is_authenticated %}
     <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
     <a href={% url "logout" %}?next=/>Se Déconnecter</a>
 {% else %}
-    <p>Welcome, new user. Please log in.</p>
-    <a href={% url "login" %}>Se Connecter</a>
-    <a href={% url "registration_register" %}>S'enregistrer</a>
+    <p>Welcome, new user. Please log in or register.</p>
+    <a href={% url "login" %}>Login</a>
+    <a href={% url "registration_register" %}>Register</a>
 {% endif %}
 
 {% if request.user.is_superuser %}
-    <button><a href="admin">admin</a></button>
+    <button><a href="admin">Admin</a></button>
 {% endif %}
 
 {% endblock %}
